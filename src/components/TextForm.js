@@ -1,24 +1,24 @@
 import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 
-export const countLines= (text) => {
-  if (text == null || text.trim() ==='') {
-    return 0;
-  }
-  let lines = 1;
-  let length = text.length;
-  for (let i = 0; i < length; i++) {
-    let c = text.charAt(i);
-    if (c === '\n') {
-      lines++;
-    }
-  }
-  return lines;
-}
+
 
 export default function TextForm(props){
 
-   
+  const countLines= (text) => {
+    if (text == null || text.trim() ==='') {
+      return 0;
+    }
+    let lines = 1;
+    let length = text.length;
+    for (let i = 0; i < length; i++) {
+      let c = text.charAt(i);
+      if (c === '\n') {
+        lines++;
+      }
+    }
+    return lines;
+  }
 
     const setToUpperCase = () => {
         let newText= text.toUpperCase();
