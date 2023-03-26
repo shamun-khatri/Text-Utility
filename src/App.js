@@ -31,7 +31,7 @@ function App() {
     <Navbar title='Text Manupulator' mode={mode} toggleMode={toggleMode} />
     <Alert alert={alert} />
     <div className="container">
-    <TextForm heading='Input Text Here' />
+    <TextForm heading='Input Text Here' showAlert={showAlert} />
     </div>
     </>
   );

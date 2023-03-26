@@ -23,11 +23,13 @@ export default function TextForm(props){
     const setToUpperCase = () => {
         let newText= text.toUpperCase();
         setText(newText);
+        props.showAlert('Text is converted to uppercase','success');
     }
 
     const setToLowerCase = () => {
         let newText = text.toLowerCase();
         setText(newText);
+        props.showAlert('Text is converted to lowercase','success');
     }
 
     const handleOnChange = (event) => {
