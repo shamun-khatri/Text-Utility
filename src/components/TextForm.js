@@ -32,22 +32,47 @@ export default function TextForm(props){
         props.showAlert('Text is converted to lowercase','success');
     }
 
+    const clearText = ()=>{ 
+      let newText = '';
+      setText(newText);
+      props.showAlert("Text Cleared!", "success");
+  }
+
+  const copyText = () => {
+    navigator.clipboard.writeText(text); 
+    props.showAlert("Copied to Clipboard!", "success");
+   
+}
+
+const handleExtraSpaces = () => {
+  let newText = text.split(/[ ]+/);
+  setText(newText.join(" "));
+  props.showAlert("Extra spaces removed!", "success");
+}
+
     const handleOnChange = (event) => {
         setText(event.target.value);
     }
 
-    const [text,setText] = useState('Enter Text Here');
+    const [text,setText] = useState('');
     return(
         <>
-<h1 className='text-center'>{props.heading}</h1>
+<h1 className='text-center my-4'>{props.heading}</h1>
 <div className="mb-3">
-  <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="10">
+  <textarea className="form-control" value={text} placeholder='Enter Text Here' onChange={handleOnChange} id="myBox" rows="10">
   </textarea>
 </div>
-<div className="btn btn-primary" onClick={setToUpperCase}>To Uppercase</div>
-<div className="btn btn-primary mx-3" onClick={setToLowerCase}>To Lowercase</div>
+<div className="buttons">
+<button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={setToUpperCase}>To Uppercase</button>
+<button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={setToLowerCase}>To Lowercase</button>
+<button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={clearText}>Clear</button>
+<button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={copyText}>Copy</button>
+<button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handleExtraSpaces}>Remove extra spaces</button>
+</div>
 <h2 className='my-3'>Your Text Summery</h2>
 <p>Character Count: {text.length} | Word Count: {text.length? text.split(" ").length :0} | Line Count: {countLines(text)}</p>
+<h2 className="my-2">Preview</h2>
+<p>{text?text:"Nothing to preview"}</p>
 </>
     )
 };
@@ -55,5 +80,5 @@ export default function TextForm(props){
 TextForm.propTypes= {heading: PropTypes.string.isRequired}
 
 TextForm.defaultProps= {
-    heading: 'Chnage Text Here'
+    heading: 'Change Text Here'
 };

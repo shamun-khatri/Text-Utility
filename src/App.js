@@ -6,8 +6,6 @@ import Alert from './components/Alert';
 
 function App() {
 
-
-
   const toggleMode= () => {
     if(mode==='light'){
       setMode('dark');
@@ -17,14 +15,16 @@ function App() {
     showAlert("Light mode has been enabled","success");}
   }
   const [mode,setMode]= useState('light'); 
-  const [alert, setalert] = useState(null);
+  const [alert, setAlert] = useState(null);
 
   const showAlert = (msg,type) => {
-    setalert({
+    setAlert({
       msg: msg,
       type: type
     })
-    
+    setTimeout(() => {
+      setAlert(null);
+    }, 2000);
   }
   return (
     <>
