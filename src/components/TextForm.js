@@ -57,20 +57,20 @@ const handleExtraSpaces = () => {
     const [text,setText] = useState('');
     return(
         <>
-<h1 className='text-center my-4'>{props.heading}</h1>
+<h1 className='text-center my-2 mb-2'>{props.heading}</h1>
 <div className="mb-3">
   <textarea className="form-control" value={text} placeholder='Enter Text Here' onChange={handleOnChange} id="myBox" rows="10">
   </textarea>
 </div>
 <div className="buttons">
-<button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={setToUpperCase}>To Uppercase</button>
-<button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={setToLowerCase}>To Lowercase</button>
-<button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={clearText}>Clear</button>
-<button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={copyText}>Copy</button>
-<button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handleExtraSpaces}>Remove extra spaces</button>
+<button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={setToUpperCase}>To Uppercase</button>
+<button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={setToLowerCase}>To Lowercase</button>
+<button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={clearText}>Clear</button>
+<button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={copyText}>Copy</button>
+<button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleExtraSpaces}>Remove extra spaces</button>
 </div>
 <h2 className='my-3'>Your Text Summery</h2>
-<p>Character Count: {text.length} | Word Count: {text.length? text.split(" ").length :0} | Line Count: {countLines(text)}</p>
+<p>Character Count: {text.length} | Word Count: {text.split(" ").filter((element)=> {return element.length!==0}).length} | Line Count: {countLines(text)}</p>
 <h2 className="my-2">Preview</h2>
 <p>{text?text:"Nothing to preview"}</p>
 </>
