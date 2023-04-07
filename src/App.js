@@ -28,7 +28,7 @@ function App() {
   }
   return (
     <>
-    <Navbar title='Text Manupulator' mode={mode} toggleMode={toggleMode} />
+    <Navbar title='Case Converter' mode={mode} toggleMode={toggleMode} />
     <Alert alert={alert} />
     <div className="container">
     <TextForm heading='Input Text Here' showAlert={showAlert} />
