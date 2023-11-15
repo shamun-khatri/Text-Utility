@@ -1,3 +1,6 @@
+![Case Converter](https://github.com/shamun-khatri/Text-Utility/assets/100433320/84803cb7-d1dc-4379-a5d8-dc9984ca961a)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
